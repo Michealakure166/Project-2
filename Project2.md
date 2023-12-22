@@ -25,3 +25,21 @@
 `curl http://localhost:80`
 
 ![accessing server locally](./Images/curl-localhost.png)
+
+### Accessing web server over the internet using public IP
+
+[url with public IP](http://51.20.60.0)
+
+![accessing server over the internet in HTML](./Images/welcome-to-nginx.png)
+
+### Before webserver was accessed over the internet, Public IP address was retrieved without accessing AWS console, using command:
+
+`curl -s http://169.254.169.254/latest/meta-data/public-ipv4`
+
+![public IP](./Images/public-ip.png)
+
+## Installing mysql
+
+### installing mysql using apt
+
+`sudo apt install mysql-server`
