@@ -38,3 +38,46 @@
 ### installing mysql using apt
 
 `sudo apt install mysql-server`
+
+![installing mysql](./Images/installing-mysql.png)
+
+### Logging into mysql console
+
+`sudo mysql`
+
+![mysql console](./Images/mysql-console.png)
+
+### setting a password for the root user, using mysql_native_password as default authentication method
+
+`ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '******';`
+
+![mysql native password](./images/sql-password.png)
+
+### Exiting mysql console
+
+`exit`
+
+![exiting mysql shell](./images/mysql-exit.png)
+
+### Running interactive security script to lockdown access on database
+
+`sudo mysql_secure_installation`
+
+### A strong mysql_native_password was maintained!
+
+![mysql native passsword](./images/secure-installation.png)
+
+### Testing logon access to mysql console
+
+`sudo mysql -p`
+
+![logon successful](./images/mysql-logon.png)
+
+### Exiting mysql console again:
+
+`exit`
+
+![exiting mysql shell](./images/mysql-exit.png)
+
+
+
