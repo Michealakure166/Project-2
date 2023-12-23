@@ -80,4 +80,161 @@
 ![exiting mysql shell](./Images/mysql-exitlogon.png)
 
 
+## Installing PHP
+
+### To install php-fpm and php-mysql to tell Nginx to pass PHP requests to this software for processing and to communicate with MySQL-based databases, respectively
+
+`sudo apt install php-fpm php-mysql`
+
+![installing php-fpm and php-mysql](./Images/install-php.png)
+
+## Configuring nginx to use php processor
+
+### Creating the root web directory for projectLEMP domain
+
+`sudo mkdir /var/www/projectLEMP`
+
+![directory for domain](./Images/directory-domain.png)
+
+## Assigning ownership of the directory with the $USER environment variable, which will reference current system user:
+
+`sudo chown -R $USER:$USER /var/www/projectLEMP`
+
+![chown for projectLEMP](./Images/chown-domain.png)
+
+## opening new configuration file in Nginx’s sites-available directory using nano:
+
+`sudo nano /etc/nginx/sites-available/projectLEMP`
+
+![config file](./Images/nano-config.png)
+
+The following bare-bones configuration was entered:
+
+![bare bones config](./Images/bare-bones.png)
+
+### Activating configuration by linking to the config file from Nginx’s sites-enabled directory:
+
+`sudo ln -s /etc/nginx/sites-available/projectLEMP /etc/nginx/sites-enabled/`
+
+![activating configuration](./Images/activating-config.png)
+
+### Testing configuration for syntax errors
+
+`sudo nginx -t`
+
+![checking syntax](./Images/syntax-ok.png)
+
+### Disabling default Nginx host that is currently configured to listen on port 80
+
+`sudo unlink /etc/nginx/sites-enabled/default`
+
+![disabling default host](./Images/disable-default.png)
+
+### Reloading Nginx to apply the changes:
+
+`sudo systemctl reload nginx`
+
+![nginx reload](./Images/nginx-reload.png)
+
+### Creating an index.html file in web root directory to test that new server block works as expected:
+
+`sudo echo 'Hello LEMP from hostname' $(curl -s http://169.254.169.254/latest/meta-data/public-hostname) 'with public IP' $(curl -s http://169.254.169.254/latest/meta-data/public-ipv4) > /var/www/projectLEMP/index.html`
+
+![index.html file creation](./Images/create-file-in-directory.png)
+
+### opening website URL from browser using IP address:
+
+[url from browser](http://54.209.203.146/)
+
+![website echo](./Images/public-ip-echo.png)
+
+# The index html file will be left in place as a temporary landing page for the application until an index.php file is created to replace it. Once that is done, the index.html file will be renamed or removed from the document root, as it would take precedence over an index.php file by default.
+
+## Testing PHP with nginx
+
+### Creating a new file called info.php within document root in nano text editor:
+
+`sudo nano /var/www/projectLEMP/info.php`
+
+![info.php file creation](./Images/info-php.png)
+
+### The following config code was entered
+
+![info.php config](./Images/config-code.png)
+
+### accessing page from web browser by visiting the domain name or public IP address set up in Nginx configuration file, followed by /info.php:
+
+`http://`server_domain_or_IP`/info.php`
+
+![php webpage from browser](./Images/webpage-php.png)
+
+### After checking the relevant information about the PHP server through that page, it’s best to remove the created info.php file as it contains sensitive information about the PHP environment and Ubuntu server.
+
+`sudo rm /var/www/projectLEMP/info.php`
+
+![removing info.php](./Images/remove-php.png)
+
+## Retreiving Data from mysql database with php
+
+### connect to the MySQL console using the root account:
+
+`sudo mysql`
+
+![connecting sql](./Images/connecting-to-sql.png)
+
+### To create a new database
+
+`mysql> CREATE DATABASE `example_database`;`
+
+![creating database](./Images/create-database.png)
+
+### Creating a user and granting user full privileges to the newly created database
+
+`mysql>  CREATE USER 'example_user'@'%' IDENTIFIED WITH mysql_native_password BY '*******';`
+
+![creating database user](./Images/create-database-user.png)
+
+### Giving user permission to database created
+
+`mysql> GRANT ALL ON example_database.* TO 'example_user'@'%';`
+
+![granting permission](./Images/granting-permission.png)
+
+### Exiting mysql shell
+
+`mysql> exit`
+
+![exiting mysql shell](./Images/mysql-exit.png)
+
+### Testing new user has proper permissions by logging into mysql console using custom user credentials:
+
+`mysql -u example_user -p`
+
+![testing custom user](./Images/test-custom-user.png)
+
+### Confirming access to the example_database database:
+
+`mysql> SHOW DATABASES;`
+
+![show access to DB](./Images/show-database.png)
+
+### creating  a test table named todo_list by running the following commands
+
+`CREATE TABLE example_database.todo_list (`
+
+`mysql>     item_id INT AUTO_INCREMENT,`
+
+`mysql>     content VARCHAR(255),`
+
+`mysql>     PRIMARY KEY(item_id)`
+
+`mysql> );`
+
+![creating to do list](./Images/creating-to-do.png)
+
+### Inserting rows of content into the test table
+
+`mysql> INSERT INTO example_database.todo_list (content) VALUES ("My first important item");`
+
+`mysql> INSERT INTO example_database.todo_list (content) VALUES ("My second important item");`
 
