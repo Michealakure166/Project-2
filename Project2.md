@@ -51,13 +51,13 @@
 
 `ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '******';`
 
-![mysql native password](./images/sql-password.png)
+![mysql native password](./Images/sql-password.png)
 
 ### Exiting mysql console
 
 `exit`
 
-![exiting mysql shell](./images/mysql-exit.png)
+![exiting mysql shell](./Images/mysql-exit.png)
 
 ### Running interactive security script to lockdown access on database
 
@@ -65,19 +65,19 @@
 
 ### A strong mysql_native_password was maintained!
 
-![mysql native passsword](./images/secure-installation.png)
+![mysql native passsword](./Images/secure-installation.png)
 
 ### Testing logon access to mysql console
 
 `sudo mysql -p`
 
-![logon successful](./images/mysql-logon.png)
+![logon successful](./Images/mysql-logon.png)
 
 ### Exiting mysql console again:
 
 `exit`
 
-![exiting mysql shell](./images/mysql-exit.png)
+![exiting mysql shell](./Images/mysql-exitlogon.png)
 
 
 
