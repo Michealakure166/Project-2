@@ -144,7 +144,7 @@ The following bare-bones configuration was entered:
 
 ### opening website URL from browser using IP address:
 
-[url from browser](http://54.209.203.146/)
+[url from browser](http://http://16.16.201.156/)
 
 ![website echo](./Images/public-ip-echo.png)
 
