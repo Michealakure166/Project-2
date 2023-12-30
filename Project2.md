@@ -164,7 +164,7 @@ The following bare-bones configuration was entered:
 
 ### accessing page from web browser by visiting the domain name or public IP address set up in Nginx configuration file, followed by /info.php:
 
-`http://`server_domain_or_IP`/info.php`
+`http://`http://13.49.77.66`/info.php`
 
 ![php webpage from browser](./Images/webpage-php.png)
 
