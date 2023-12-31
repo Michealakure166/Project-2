@@ -284,7 +284,7 @@ The following bare-bones configuration was entered:
 
 ### accessing the page in web browser using domain name or public IP address configured for the website, followed by /todo_list.php:
 
-[url](http://54.209.203.146/todo_list.php)
+[url](http://13.49.77.66/todo_list.php)
 
 ![public address from web browser](./Images/public-address-echo.png)
 
