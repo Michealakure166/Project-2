@@ -238,3 +238,56 @@ The following bare-bones configuration was entered:
 
 `mysql> INSERT INTO example_database.todo_list (content) VALUES ("My second important item");`
 
+`mysql> INSERT INTO example_database.todo_list (content) VALUES ("My third important item");`
+
+`mysql> INSERT INTO example_database.todo_list (content) VALUES ("and this one more thing");`
+
+![a few rows of content](./images/rows-of-content.png)
+
+### To confirm the data was successfully saved to the table
+
+`mysql>  SELECT * FROM example_database.todo_list;`
+
+![confirming data on table](./images/confirm-data.png)
+
+### Exiting sql
+
+`mysql> exit`
+
+![exiting mysql shell](./images/mysql-exit.png)
+
+### creating a PHP script that will connect to MySQL and query for content. Creating a new PHP file in custom web root directory using nano  editor:
+
+`nano /var/www/projectLEMP/todo_list.php`
+
+![creating new PHP file in web root directory](./images/nano-to-do.png)
+
+### The following content is entered and saved into the todo_list.php script. The PHP script connects to the MySQL database and queries for the content of the todo_list table, displays the results in a list. If there is a problem with the database connection, it will throw an exception.
+
+`<?php`
+`$user = "example_user";`
+`$password = "password";`
+`$database = "example_database";`
+`$table = "todo_list";`
+
+`try {`
+  `$db = new PDO("mysql:host=localhost;dbname=$database", $user, $password);`
+  `echo "<h2>TODO</h2><ol>";`
+  `foreach($db->query("SELECT content FROM $table") as $row) {`
+    `echo "<li>" . $row['content'] . "</li>";`
+  `}`
+  `echo "</ol>";`
+`} catch (PDOException $e) {`
+    `print "Error!: " . $e->getMessage() . "<br/>";`
+    `die();`
+`}`
+
+### accessing the page in web browser using domain name or public IP address configured for the website, followed by /todo_list.php:
+
+[url](http://54.209.203.146/todo_list.php)
+
+![public address from web browser](./images/public-address-echo.png)
+
+# PHP environment is ready to connect and interact with MySQL server.
+
+# We have built a flexible foundation for serving PHP websites and applications to visitors, using Nginx as web server and MySQL as database management system.
