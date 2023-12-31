@@ -242,25 +242,25 @@ The following bare-bones configuration was entered:
 
 `mysql> INSERT INTO example_database.todo_list (content) VALUES ("and this one more thing");`
 
-![a few rows of content](./images/rows-of-content.png)
+![a few rows of content](./Images/rows-of-content.png)
 
 ### To confirm the data was successfully saved to the table
 
 `mysql>  SELECT * FROM example_database.todo_list;`
 
-![confirming data on table](./images/confirm-data.png)
+![confirming data on table](./Images/confirm-data.png)
 
 ### Exiting sql
 
 `mysql> exit`
 
-![exiting mysql shell](./images/mysql-exit.png)
+![exiting mysql shell](./Images/mysql-exit.png)
 
 ### creating a PHP script that will connect to MySQL and query for content. Creating a new PHP file in custom web root directory using nano  editor:
 
 `nano /var/www/projectLEMP/todo_list.php`
 
-![creating new PHP file in web root directory](./images/nano-to-do.png)
+![creating new PHP file in web root directory](./Images/nano-to-do.png)
 
 ### The following content is entered and saved into the todo_list.php script. The PHP script connects to the MySQL database and queries for the content of the todo_list table, displays the results in a list. If there is a problem with the database connection, it will throw an exception.
 
@@ -286,7 +286,7 @@ The following bare-bones configuration was entered:
 
 [url](http://54.209.203.146/todo_list.php)
 
-![public address from web browser](./images/public-address-echo.png)
+![public address from web browser](./Images/public-address-echo.png)
 
 # PHP environment is ready to connect and interact with MySQL server.
 
