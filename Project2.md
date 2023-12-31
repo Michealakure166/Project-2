@@ -234,11 +234,13 @@ The following bare-bones configuration was entered:
 
 ### Inserting rows of content into the test table
 
-`mysql> INSERT INTO example_database.todo_list (content) VALUES
-    -> ('My first important item'),
-    -> ('My second important item'),
-    -> ('My third important item'),
-    -> ('and this one more thing');`
+`mysql> INSERT INTO example_database.todo_list (content) VALUES ("My first important item");`
+
+`mysql> INSERT INTO example_database.todo_list (content) VALUES ("My second important item");`
+
+`mysql> INSERT INTO example_database.todo_list (content) VALUES ("My third important item");`
+
+`mysql> INSERT INTO example_database.todo_list (content) VALUES ("and this one more thing");`
 
 ![a few rows of content](./images/rows-of-content.png)
 
@@ -252,7 +254,7 @@ The following bare-bones configuration was entered:
 
 `mysql> exit`
 
-![exiting mysql shell](./images/msql-exit.png)
+![exiting mysql shell](./images/mysql-exit.png)
 
 ### creating a PHP script that will connect to MySQL and query for content. Creating a new PHP file in custom web root directory using nano  editor:
 
