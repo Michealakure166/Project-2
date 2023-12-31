@@ -234,13 +234,11 @@ The following bare-bones configuration was entered:
 
 ### Inserting rows of content into the test table
 
-`mysql> INSERT INTO example_database.todo_list (content) VALUES ("My first important item");`
-
-`mysql> INSERT INTO example_database.todo_list (content) VALUES ("My second important item");`
-
-`mysql> INSERT INTO example_database.todo_list (content) VALUES ("My third important item");`
-
-`mysql> INSERT INTO example_database.todo_list (content) VALUES ("and this one more thing");`
+`mysql> INSERT INTO example_database.todo_list (content) VALUES
+    -> ('My first important item'),
+    -> ('My second important item'),
+    -> ('My third important item'),
+    -> ('and this one more thing');`
 
 ![a few rows of content](./images/rows-of-content.png)
 
