@@ -252,7 +252,7 @@ The following bare-bones configuration was entered:
 
 `mysql> exit`
 
-![exiting mysql shell](./images/mysql-exit.png)
+![exiting mysql shell](./images/msql-exit.png)
 
 ### creating a PHP script that will connect to MySQL and query for content. Creating a new PHP file in custom web root directory using nano  editor:
 
